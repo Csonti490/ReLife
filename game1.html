@@ -22,7 +22,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 
-        <title>ReLife | Főoldal</title>
+        <title>ReLife | Kalandjáték 1</title>
 
     </head>
     <body>
@@ -62,34 +62,58 @@
                 <div class="row">
                     <div class="col-12 my-3 oldalcim">
                         <hr class="border border-5 rounded-circle">
-                        <h1 class="text-center m-0 p-0">ReLife</h1>
+                        <h1 class="text-center m-0 p-0">Kalandjáték 1</h1>
                         <hr class="border border-5 rounded-circle">
                     </div>
                 </div>
             </div>
 
-            <div class="container border border-white rounded my-5 p-5 col-12 col-md-8 lapok">
+            <div class="container border border-white rounded my-5 p-5 col-12 col-md-8 lapok" id="start">
                 <div class="row">
                     <div class="col-12">
                         <hr class="border border-5 rounded-circle">
                         <h3 class="text-center">Kalandjáték 1</h3>
                         <hr class="border border-5 rounded-circle">
-                        <p>Egy rövid kalandjáték, amit még JAVA-ban programoztam (2022 novemberében). Arra gondoltam, hogy átírom webre, hogy itt is lehessen játszani vele.</p>
-                        <button class="d-block mx-auto p-2" onclick="location.href='game1.html'">Tovább a játékhoz</button>
+                        <div class="row">
+                            <div class="col-12 col-md-6 my-3">
+                                <button onclick="Game1(0)" class="d-block mx-auto p-2">Játék indítása</button>
+                            </div>
+                            <div class="col-12 col-md-6 my-3">
+                                <button class="d-block mx-auto p-2" onclick="location.href='index.html'">Vissza a főoldalra</button>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                
+            </div>
+
+            <div class="tortenet d-none"><!--0-->
+                    <p class="szoveg d-none">[Angyal] Oh... úgy látom Truck-kun egy újabb életnek akart véget vetni. Nem hiszem el ezt... nah mindegy. Szóval... Üdvözöllek a másvilág kapujában! Lehetőséged van rá, hogy folytasd az életedet, de egy másik világban. Itt van előtted egy kapu, ami egy számodra ismeretlen világba vezet.<br><br>Szeretnél reinkarnálódni?</p>
+                <div class="valasz d-none">
+                    <button onclick="Game1(2)" class="d-block mx-auto">Igen</button>
+                    <button onclick="Game1(1)" class="d-block mx-auto">Nem</button>
                 </div>
             </div>
 
-            <div class="container border border-white rounded my-5 p-5 col-12 col-md-8 lapok">
-                <div class="row">
-                    <div class="col-12">
-                        <hr class="border border-5 rounded-circle">
-                        <h3 class="text-center">Kalandjáték 2</h3>
-                        <hr class="border border-5 rounded-circle">
-                        <p>Az első játék bővített verziója.</p>
-                        <p class="text-center">( Hamarosan... )</p>
-                        <button class="d-block mx-auto p-2" onclick="location.href='#'" disabled>Tovább a játékhoz</button>
-                    </div>
+            <div class="tortenet d-none"><!--1-->
+                <p class="szoveg d-none">[-] Game Over [-]</p>
+                <div class="valasz d-none">
+                    <button onclick="Game1('theend')" class="d-block mx-auto">Vissza a kezdéshez</button>
+                </div>
+            </div>
+
+            <div class="tortenet d-none"><!--2-->
+                <p class="szoveg d-none">[Angyal] Ezzel a döntéssel már rá is lépsz az új történeted ösvényére. De mielőtt átlépnél abba a világba, előtte alkossuk meg a karakteredet. Az új élethez új név is dukál.<br><br>Írd be az új nevedet:</p>
+                <div class="valasz d-none">
+                    <input type="text" id="nev">
+                    <button onclick="ChangeValtozo();Game1(3)" class="d-block mx-auto">Kész</button>
+                </div>
+            </div>
+            
+            <div class="tortenet d-none"><!--3-->
+                <p class="szoveg d-none">[Angyal] Biztos a(z) "<span class="kiiras"></span>" nevet akarod használni?<br>Nemár...</p>
+                <div class="valasz d-none">
+                    <button onclick="Game1(4)" class="d-block mx-auto">Tovább</button>
                 </div>
             </div>
 
@@ -100,6 +124,6 @@
     </body>
     <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
+    <script src="game1.js"></script>
     <script src="felgomb.js"></script>
 </html>
-<!-- 2024.05.03.-->
